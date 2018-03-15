@@ -7,8 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="<%=basePath%>">   
-    <title>视频播放</title>   
+    <base href="<%=basePath%>">    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -17,26 +16,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<style>
-		.center
-		{
-			border-style: solid solid solid solid;
-			position: absolute;
-  			left: 30%;
-  			top: 50px;
-		}
-	</style>
+
   </head>
   
   <body>
-  <% 
-  String VideoName=request.getParameter("VideoName");
-  String VideoLocation=request.getParameter("VideoLocation");
-  out.print(VideoName);
-  out.print(VideoLocation);
-  %>
-   <video width="480" height="360" controls class="center">
-	<source src="http://localhost:8080/SSW/stream?fpath=/ssw/<%=VideoLocation %>/<%=VideoName%>" type="video/mp4">
-	</video> 
+  <%
+  String username=session.getAttribute("username").toString();
+   %>
+   <h3><a href="main.jsp?username=<%=username%>">回到主页    </a>   欢迎<a href="userinfo.jsp?username=<%=username%>"><%=session.getAttribute("username") %></a>,<a href="logout.jsp">退出登录</a></h3>
   </body>
 </html>

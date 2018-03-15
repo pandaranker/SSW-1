@@ -65,8 +65,11 @@ public class DBUtil {
 		pstmt=this.getPrepareStatement(sql);
 		if(params!=null)
 		{
+		/*for(int i=0;i<params.length;i++){
+			System.out.print(params[i]);
+		}*/
 		for(int i=0;i<params.length;i++)
-			try{
+			try{	
 				pstmt.setString(i+1, params[i]);
 			}
 			catch(SQLException e){
